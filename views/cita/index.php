@@ -1,6 +1,12 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
 <p class="descripcion-pagina">Elige tus servicios y coloca tus datos</p>
 
+<div class="barra">
+    <p>Hola: <?php echo $nombre ?? ''; ?></p>
+
+    <a class="boton" href="/logout">Cerrar Sesión</a>
+</div>
+
 <div id="app">
     
     <nav class="tabs">
@@ -28,7 +34,7 @@
                     type="text"
                     id="nombre"
                     placeholder="Tu Nombre"
-                    value="<?php echo $nombre; ?>"
+                    value = "Oscar Carrasco"
                     disabled
                 />
             </div>
@@ -36,7 +42,8 @@
                 <label for="fecha">Fecha</label>
                 <input 
                     type="date"
-                    id="fecha"                    
+                    id="fecha"        
+                    min="<?php echo date('Y-m-d'); ?>"            
                 />
             </div>
             <div class="campo">
@@ -47,10 +54,11 @@
                 />
             </div>
 
+            <input type="hidden" id="id" value="<?php echo $id; ?>">
         </form>
     </div>
 
-    <div id="paso-3" class="seccion">
+    <div id="paso-3" class="seccion contenido-resumen">
         <h2>Resumen</h2>
         <p class="text-center">Verifica que la información sea correcta</p>
     </div>
@@ -62,5 +70,6 @@
 </div>
 
 <?php
-    $script = "<script src='build/js/app.js'></script>";
+    $script = " <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script src='build/js/app.js'></script>";
 ?>
